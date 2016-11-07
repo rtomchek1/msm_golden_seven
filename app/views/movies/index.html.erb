@@ -1,0 +1,28 @@
+<a href="/movies/add" class="btn btn-primary">Add Movie</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Duration</th>
+      <th>Description</th>
+      <th>View Details</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <% @movie.each do |movie| %>
+    <tr>
+      <td><img src="<%= movie.image_url %>" width="80"></td>
+      <td><%= movie.title %></td>
+      <td><%= movie.year %></td>
+      <td><%= movie.duration %></td>
+      <td><%= truncate(movie.description) %></td>
+      <td><a href="/movies/<%= movie.id %>" class="btn btn-primary">View Details</a></td>
+      <td><a href="/movies/<%= movie.id %>/edit" class="btn btn-primary">Edit</a></td>
+      <td><a href="/movies/<%= movie.id %>/delete" class="btn btn-primary">Delete</a></td>
+    </tr>
+  <% end %>
+</table>

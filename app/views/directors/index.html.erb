@@ -1,3 +1,5 @@
+<a href="/directors/add" class="btn btn-primary">Add Director</a>
+
 <table>
   <thead>
     <tr>
@@ -6,15 +8,19 @@
       <th>Biography</th>
       <th>Date of Birth</th>
       <th>View Details</th>
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <% @directors.each do |director| %>
     <tr>
-      <td><img src="<%= director.image_url %>"></td>
+      <td><img src="<%= director.image_url %>" width="80"></td>
       <td><%= director.name %></td>
       <td><%= truncate(director.bio) %></td>
       <td><%= director.dob %></td>
-      <td><a href="/directors/<%= director.id %>" class="btn btn-primary"></a></td>
+      <td><a href="/directors/<%= director.id %>" class="btn btn-primary">View Details</a></td>
+      <td><a href="/directors/<%= director.id %>/edit" class="btn btn-primary">Edit</a></td>
+      <td><a href="/directors/<%= director.id %>/delete" class="btn btn-primary">Delete</a></td>
     </tr>
   <% end %>
 </table>
