@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Biography</th>
+      <th>Date of Birth</th>
+      <th>View Details</th>
+    </tr>
+  </thead>
+  <% @directors.each do |director| %>
+    <tr>
+      <td><img src="<%= director.image_url %>"></td>
+      <td><%= director.name %></td>
+      <td><%= truncate(director.bio) %></td>
+      <td><%= director.dob %></td>
+      <td><a href="/directors/<%= director.id %>" class="btn btn-primary"></a></td>
+    </tr>
+  <% end %>
+</table>
